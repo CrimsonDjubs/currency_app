@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'viewport', content: 'width = device-width, initial-scale = 1, maximum-scale = 1' }
+
+    %title Currency App
+
+    = stylesheet_pack_tag :application, media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag :application, 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+    = action_cable_meta_tag
+
+  %body
+    %nav.py-0.navbar.navbar-expand-md.bg-faded.navbar-light.bg-light.navbar-custom
+      %a.navbar-brand{ href: '#' } Currency App
+
+    .container
+      = yield

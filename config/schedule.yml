@@ -1,0 +1,4 @@
+'Update tokens data':
+  cron: '* * * * *'
+  class: 'ExchangeRatesWorker'
+  queue: 'default'

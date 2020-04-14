@@ -1,0 +1,15 @@
+= simple_form_for(:exchange_rate, url: admin_exchange_rate_path, method: :patch) do |form|
+
+  - if @exchange_rate_form.errors.present?
+    - @exchange_rate_form.errors.messages.map do |k, m|
+      = m.join(',')
+
+  .row= form.input :rate, label: 'Rate', input_html: { value: @forced_rate.try(:rate) }
+  .row
+    .form-group
+      .input-group.date#datetimepicker{ data: { target: { input: 'nearest' } } }
+        = form.input_field :expires_at, label: 'Expires at', value: @forced_rate.try(:expires_at),
+          data: { target: 'datetimepicker' }, class: 'datetimepicker-input form-control'
+        .input-group-append{ data: { target: '#datetimepicker', toggle: 'datetimepicker' } }
+          .input-group-text Expires at
+  = form.submit
